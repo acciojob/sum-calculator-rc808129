@@ -13,7 +13,8 @@ const SumCalculator = () => {
 
     const num = Number(value);
     if (isNaN(num)) return;
-      setSum(prev => prev + num)
+
+    setSum(sum+num);
     
   }
 
