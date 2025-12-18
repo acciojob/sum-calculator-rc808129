@@ -13,8 +13,7 @@ const SumCalculator = () => {
 
     const num = Number(value);
     if (isNaN(num)) return;
-
-    setSum(sum+num);
+      setSum(prev => prev + num)
     
   }
 
@@ -27,7 +26,7 @@ const SumCalculator = () => {
         
         onChange={handleChange}
       />
-      <p>Sum : {sum}</p>
+      <p>Sum: {sum}</p>
     </div>
   );
 };
