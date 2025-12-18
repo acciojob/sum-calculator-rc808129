@@ -4,37 +4,32 @@ const SumCalculator = () => {
   const [input, setInput] = useState("");
   const [sum, setSum] = useState(0);
 
+
   function handleChange(e) {
-    setInput(e.target.value);
-  }
+    const value = e.target.value;
+    setInput(value);
 
-  function handleKeyDown(e) {
-    if (e.key === "Enter") {
-      const num = parseInt(input, 10);
-      if (isNaN(num)) return;
+    
 
-      // ✅ safe update
-      setSum(prev => prev + num);
-      setInput("");
-    }
+    const num = Number(value);
+    if (isNaN(num)) return;
+
+    setSum(sum+num);
+    
   }
 
   return (
     <div>
       <h1>Sum Calculator</h1>
-
       <input
         type="text"
-        placeholder="Enter number"
-        value={input}
+        placeholder="Enter number (+ or -)"
+        
         onChange={handleChange}
-        onKeyDown={handleKeyDown}
       />
-
-      {/* ✅ exact text expected by test */}
-      <p>Sum: {sum}</p>
+      <p>Sum : {sum}</p>
     </div>
   );
 };
 
-export default SumCalculator;
+export default SumCalculator;  
